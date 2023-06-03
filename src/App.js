@@ -17,6 +17,13 @@ function App() {
           onClick={() => setCount((prev) => prev + 1)}>
           +
         </button>
+        <div>
+          <button
+            style={{ backgroundColor: 'blue' }}
+            data-testid='on/off-button'>
+            on/off
+          </button>
+        </div>
       </header>
     </div>
   );
