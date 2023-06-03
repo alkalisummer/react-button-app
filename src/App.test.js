@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
+import userEvent from '@testing-library/user-event';
 
 test('the counter starts at 0', () => {
   render(<App />);
@@ -47,4 +48,17 @@ test('on/off button has blue color', () => {
   // on/off-button의 background컬러가 'blue'인지 확인
   const buttonElement = screen.getByTestId('on/off-button');
   expect(buttonElement).toHaveStyle({ backgroundColor: 'blue' });
+});
+
+test('prevent the -, + button from being pressed when the on/off button is clicked', async () => {
+  render(<App />);
+  // on/off-button 클릭하는 이벤트 발생
+  const onOffButtonElement = screen.getByTestId('on/off-button');
+  await userEvent.click(onOffButtonElement);
+
+  // on/off-button을 클릭시 -, + 버튼이 비활성화 되는지 확인
+  const plusButtonElement = screen.getByTestId('plus-button');
+  const minusButtonElement = screen.getByTestId('minus-button');
+  expect(plusButtonElement).toBeDisabled();
+  expect(minusButtonElement).toBeDisabled();
 });
