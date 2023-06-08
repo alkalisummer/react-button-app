@@ -47,7 +47,7 @@ describe('Button Counter Tests', () => {
     render(<App />);
     // on/off-button의 background컬러가 'blue'인지 확인
     const buttonElement = screen.getByTestId('on/off-button');
-    expect(buttonElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(buttonElement).toHaveStyle({ backgroundColor: 'darkorange' });
   });
 
   test('prevent the -, + button from being pressed when the on/off button is clicked', () => {
