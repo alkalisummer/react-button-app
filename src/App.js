@@ -6,31 +6,41 @@ function App() {
   const [disabled, setDisabled] = useState(false);
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h3 data-testid='counter'>{count}</h3>
+      <span className='counter_title'>React Counter App</span>
+      <div className='counter_btn_div'>
         <button
           id='minus-button'
+          className='counter_btn'
           data-testid='minus-button'
           disabled={disabled}
-          onClick={() => setCount((prev) => prev - 1)}>
+          onClick={() => setCount((prev) => prev - 1)}
+          style={disabled ? { color: 'gray' } : { color: 'white' }}>
           -
         </button>
+        <span
+          className='counter_num'
+          data-testid='counter'>
+          {count}
+        </span>
         <button
           id='plus-button'
+          className='counter_btn'
           data-testid='plus-button'
           disabled={disabled}
-          onClick={() => setCount((prev) => prev + 1)}>
+          onClick={() => setCount((prev) => prev + 1)}
+          style={disabled ? { color: 'gray' } : { color: 'white' }}>
+          {' '}
           +
         </button>
-        <div>
-          <button
-            style={{ backgroundColor: 'blue' }}
-            data-testid='on/off-button'
-            onClick={() => setDisabled((prev) => !prev)}>
-            on/off
-          </button>
-        </div>
-      </header>
+      </div>
+      <div>
+        <button
+          className='counter_on_off'
+          data-testid='on/off-button'
+          onClick={() => setDisabled((prev) => !prev)}>
+          ON / OFF
+        </button>
+      </div>
     </div>
   );
 }
