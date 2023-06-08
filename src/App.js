@@ -36,6 +36,7 @@ function App() {
       <div>
         <button
           className='counter_on_off'
+          style={{ backgroundColor: 'darkorange' }}
           data-testid='on/off-button'
           onClick={() => setDisabled((prev) => !prev)}>
           ON / OFF
